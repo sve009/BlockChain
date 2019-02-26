@@ -17,7 +17,7 @@ public class Hash {
                                 return false;
                         }
                 }
-
+                
                 return true;
         }
 
@@ -31,6 +31,7 @@ public class Hash {
         }
 
         public boolean equals(Object other) {
-                //Implement
+          String str = this.toString();
+          return (str.equals(other.toString()));
         }
 }
