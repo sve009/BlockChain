@@ -1,60 +1,59 @@
 
 public class BlockChain {
-
-
-
+  public Node first;
+  public Node last;
+  public static int blockNum = -1;
+  public Block block;
+  
   public static class Node {
-    public Node head;
-    public int count;
+    public BlockChain value;
+    public Node next;
 
-    public Node(Object object) {
-      head = new Node(null);
-      count = 0;
+
+    public Node(BlockChain value, Node next) {
+      this.value = value;
+      this.next = next;
     }
 
   }
-  
 
+  public BlockChain(int initial) {
+    blockNum++;
+    this.block = new Block(blockNum, initial, null);
+    this.first = new Node(this, null);
+    this.last = this.first;
+  }
 
+  public Block mine(int amount) {
+    // Implement
+  }
 
+  public int getSize() {
+    // Implement
+  }
 
+  public void append(Block blk) {
+    // Implement
+  }
 
-        //Implement datastructure
-       
-        public BlockChain(int initial) {
-               //Implement 
-        }
+  public boolean removeLast() {
+    // Implement
+  }
 
-        public Block mine(int amount) {
-               //Implement
-        } 
+  public Hash getHash() {
+    // Implement
+  }
 
-        public int getSize() {
-                //Implement
-        }
+  public boolean isValidBlock() {
+    // Implement
+  }
 
-        public void append(Block blk) {
-                //Implement
-        }
+  public void printBalances() {
 
-        public boolean removeLast() {
-                //Implement
-        }
+  }
 
-        public Hash getHash() {
-                //Implement
-        }
+  public String toString() {
 
-        public boolean isValidBlock() {
-                //Implement
-        }
-
-        public void printBalances() {
-
-        }
-
-        public String toString() {
-
-        }
+  }
 
 }
