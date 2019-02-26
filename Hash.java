@@ -14,7 +14,7 @@ public class Hash {
         }
 
         public String toString() {
-                //Implement
+                String retString = new String();
         }
 
         public boolean equals(Object other) {
