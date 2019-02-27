@@ -78,12 +78,32 @@ public class BlockChain {
   }
 
   public void printBalances() {
+    PrintWriter pen = new PrintWriter(System.out, true);
+    Node temp = this.first;
+    int total = temp.value.getAmount();
+    int initial = total;
 
+    while (temp.next != null) {
+            temp = temp.next;
+            total += temp.value.getAmount();
+    }
+
+    pen.println("Alice: " + total + " Bob: " + (initial - total));
   }
 
   public String toString() {
     //Implement
-    return "";
+    String retString = new String();
+    PrintWriter pen = new PrintWriter(System.out, true);
+    Node temp = this.first;
+
+    while (temp != null) {
+            retString += temp.value.toString();
+            retString += '\n';
+            temp = temp.next;
+    }
+
+    return retString;
   }
 
 }
