@@ -59,8 +59,9 @@ public class Block {
   }
 
   public String toString() {
-    //Implement
-    return "";
+    return "Block " + this.getNum() + " (Amount: " + this.getAmount() 
+            + ", Nonce: " + this.getNonce() + ", prevHash: " + this.getPrevHash()
+            + ", hash: " + this.getHash() + ")";
   }
 
   public static byte[] calculateHash(int num, int data, Hash prevHash, long nonce) throws NoSuchAlgorithmException {
