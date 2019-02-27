@@ -1,37 +1,47 @@
+/**
+ * A Wrapper for byte[] with some helping functions 
+ * to determine validity.
+ */
 public class Hash {
-        private byte[] data;
+  //fields------------------------------------
 
-        public Hash(byte[] data) {
-                this.data = data;
-        }
+  private byte[] data;
 
-        public byte[] getData() {
-                return this.data;
-        }
+  //constructor-------------------------------
 
-        public boolean isValid() {
-                String str = this.toString();
+  public Hash(byte[] data) {
+    this.data = data;
+  }
 
-                for (int i = 0; i < 3; i++) {
-                        if (str.charAt(i) != 0)  {
-                                return false;
-                        }
-                }
-                
-                return true;
-        }
+  //Methods-----------------------------------
 
-        public String toString() {
-                String retString = new String();
-                for (byte b: this.data) {
-                        retString += String.format("%x", Byte.toUnsignedInt(b));
-                }
+  public byte[] getData() {
+    return this.data;
+  }
 
-                return retString;
-        }
+  public boolean isValid() {
+    String str = this.toString();
 
-        public boolean equals(Object other) {
-          String str = this.toString();
-          return (str.equals(other.toString()));
-        }
+    for (int i = 0; i < 3; i++) {
+      if (str.charAt(i) != 0)  {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  public String toString() {
+    String retString = new String();
+    for (byte b: this.data) {
+      retString += String.format("%x", Byte.toUnsignedInt(b));
+    }
+
+    return retString;
+  }
+
+  public boolean equals(Object other) {
+    String str = this.toString();
+    return (str.equals(other.toString()));
+  }
 }

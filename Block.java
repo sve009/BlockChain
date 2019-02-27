@@ -2,12 +2,23 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.nio.ByteBuffer;
 
+/**
+ * A Block class that keeps track of each individual
+ * unit of the BlockChain.
+ * Has two constructors, with the first finding a nonce
+ * and the second requiring one to be found beforehand.
+ * Also includes the static hashing method.
+ */
 public class Block {
+  //fields-------------------------------------------------------------
+
   private int num;
   private int data;
   private Hash prevHash;
   private long nonce = -1;
   private Hash hash;
+
+  //constructors-------------------------------------------------------
 
   public Block(int num, int amount, Hash prevHash) throws NoSuchAlgorithmException {
     this.num = num;
@@ -28,6 +39,7 @@ public class Block {
     }
   }
 
+
   public Block(int num, int amount, Hash prevHash, long nonce) throws NoSuchAlgorithmException {
     this.num = num;
     this.data = amount;
@@ -37,6 +49,8 @@ public class Block {
     //Generate hash
     this.hash = new Hash(Block.calculateHash(num, amount, prevHash, nonce));
   }
+
+  //methods---------------------------------------------------------------
 
   public int getNum() {
     return this.num;
@@ -60,8 +74,8 @@ public class Block {
 
   public String toString() {
     return "Block " + this.getNum() + " (Amount: " + this.getAmount() 
-            + ", Nonce: " + this.getNonce() + ", prevHash: " + this.getPrevHash()
-            + ", hash: " + this.getHash() + ")";
+      + ", Nonce: " + this.getNonce() + ", prevHash: " + this.getPrevHash()
+      + ", hash: " + this.getHash() + ")";
   }
 
   public static byte[] calculateHash(int num, int data, Hash prevHash, long nonce) throws NoSuchAlgorithmException {
