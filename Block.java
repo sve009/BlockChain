@@ -1,3 +1,6 @@
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class Block {
         private int num;
         private int data;
@@ -9,6 +12,8 @@ public class Block {
                this.num = num;
                this.data = amount;
                this.prevHash = prevHash;
+
+               //Generate hash
         }
 
         public Block(int num, int amount, Hash prevHash, long nonce) {
@@ -16,6 +21,8 @@ public class Block {
                 this.data = amount;
                 this.prevHash = prevHash;
                 this.nonce = nonce;
+
+                //Generate hash
         }
 
         public int getNum() {

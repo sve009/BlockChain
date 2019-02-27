@@ -1,44 +1,66 @@
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.io.PrintWriter;
 
 public class BlockChain {
 
+  public Node first;
+  public Node last;
+  public static int blockNum = -1;
+  
   public static class Node {
-    public Node head;
-    public int count;
+    public Block value;
+    public Node next;
 
-    public Node(Object object) {
-      head = new Node(null);
-      count = 0;
+
+    public Node(Block value, Node next) {
+      this.value = value;
+      this.next = next;
     }
   }
 
-  //Implement datastructure
-
   public BlockChain(int initial) {
-    //Implement 
+    blockNum++;
+    this.first = new Node(new Block(BlockChain.blockNum, initial, null), null);
+    this.last = this.first;
   }
 
   public Block mine(int amount) {
-    //Implement
-  } 
+    // Implement
+  }
 
   public int getSize() {
-    //Implement
+    return BlockChain.blockNum + 1;
   }
 
   public void append(Block blk) {
-    //Implement
+   Node node = new Node(blk, null);
+   this.last.next = node;
+   this.last = node; 
   }
 
   public boolean removeLast() {
-    //Implement
+    if (this.getSize() < 2) {
+            return false;
+    }
+
+    Node temp = this.first;
+    while (temp.next.next != null) {
+            temp = temp.next;
+    }
+
+    temp.next = null;
+    this.last = temp;
+
+    return true;
   }
 
   public Hash getHash() {
-    //Implement
+    return this.last.value.getHash();
   }
 
-  public boolean isValidBlock() {
-    //Implement
+  public boolean isValidBlockChain() {
+    // Implement
   }
 
   public void printBalances() {
