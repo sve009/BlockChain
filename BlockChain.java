@@ -1,6 +1,7 @@
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.io.PrintWriter;
+import java.nio.ByteBuffer;
 
 public class BlockChain {
 
@@ -19,14 +20,26 @@ public class BlockChain {
     }
   }
 
-  public BlockChain(int initial) {
+  public BlockChain(int initial) throws NoSuchAlgorithmException{
     blockNum++;
     this.first = new Node(new Block(BlockChain.blockNum, initial, null), null);
     this.last = this.first;
   }
 
-  public Block mine(int amount) {
-    // Implement
+  public Block mine(int amount) throws NoSuchAlgorithmException {
+    long nonce = -1;
+    boolean nonceFound = false;
+
+    while (!nonceFound) {
+            nonce++;
+
+            Hash hash = new Hash(Block.calculateHash(BlockChain.blockNum + 1, amount, this.last.value.getHash(), nonce));
+            
+            if (hash.isValid()) {
+                    nonceFound = true;
+            }
+    }
+    return new Block(BlockChain.blockNum + 1, amount, this.last.value.getHash(), nonce);
   }
 
   public int getSize() {
@@ -61,6 +74,7 @@ public class BlockChain {
 
   public boolean isValidBlockChain() {
     // Implement
+    return true;
   }
 
   public void printBalances() {
@@ -68,7 +82,8 @@ public class BlockChain {
   }
 
   public String toString() {
-
+    //Implement
+    return "";
   }
 
 }
