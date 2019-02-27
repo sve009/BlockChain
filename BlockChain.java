@@ -73,7 +73,25 @@ public class BlockChain {
   }
 
   public boolean isValidBlockChain() {
-    // Implement
+    Node temp = this.first;
+    int total = temp.value.getAmount();
+    Hash prevHash = temp.value.getHash();
+    Hash currentHash;
+
+    if (!prevHash.isValid()) {
+            return false;
+    }
+
+    while (temp.next != null) {
+            temp = temp.next;
+            total += temp.value.getAmount();
+            currentHash = temp.value.getHash();
+
+            if (total < 0 || !currentHash.equals(prevHash) || !currentHash.isValid()) {
+                   return false;
+            } 
+    }
+
     return true;
   }
 
