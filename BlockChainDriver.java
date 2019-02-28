@@ -13,7 +13,7 @@ public class BlockChainDriver {
       pen.println("Incorrect number of parameters");
       System.exit(1);
     }
-
+while (input != "quit") {
     initial = Integer.parseInt(args[0]);
     BlockChain block = new BlockChain(initial);
     pen.println(block);
@@ -61,6 +61,7 @@ public class BlockChainDriver {
     if (input.contentEquals("quit")) {
       System.exit(1);
     }
+} // while loop
   }// main
 }// class
 
