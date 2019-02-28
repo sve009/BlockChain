@@ -20,29 +20,27 @@ public class Hash {
   }
 
   public boolean isValid() {
-    String str = this.toString();
-
     for (int i = 0; i < 3; i++) {
-      if (str.charAt(i) != '0')  {
+      if (this.data[i] != 0)  {
         return false;
       }
     }
-
-    System.out.println("Valid found");
 
     return true;
   }
 
   public String toString() {
     String retString = new String();
-    for (byte b: this.data) {
-      retString += String.format("%x", Byte.toUnsignedInt(b));
+    for (int i = 0; i < this.data.length; i++) {
+      byte b = this.data[i];
+      int thing = Byte.toUnsignedInt(b);
+      retString += String.format("%x", thing);
     }
 
     return retString;
   }
 
-  public boolean equals(Object other) {
+  public boolean equals(Hash other) {
     String str = this.toString();
     return (str.equals(other.toString()));
   }
