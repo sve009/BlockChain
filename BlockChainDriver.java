@@ -2,7 +2,15 @@ import java.io.PrintWriter;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/**
+ * Driver class that demonstrates
+ * and lets users use the BlockChain
+ * class for fun.
+ * Just a groovy repl.
+ */
 public class BlockChainDriver {
+
+  //main--------------------------------------------------
 
   public static void main(String[] args) throws Exception {
     PrintWriter pen = new PrintWriter(System.err, true);
