@@ -138,8 +138,8 @@ public class BlockChain {
     Node temp = this.first;
 
     while (temp != null) {
-      retString += temp.value.toString();
       retString += '\n';
+      retString += temp.value.toString();
       temp = temp.next;
     }
 
