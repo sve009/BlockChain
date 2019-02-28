@@ -108,7 +108,7 @@ public class BlockChain {
       total += temp.value.getAmount();
       currentHash = temp.value.getHash();
 
-      if (total < 0 || !currentHash.equals(prevHash) || !currentHash.isValid()) {
+      if (total < 0 || !temp.value.getPrevHash().equals(prevHash) || !currentHash.isValid()) {
         return false;
       } 
     }
