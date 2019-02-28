@@ -23,10 +23,12 @@ public class Hash {
     String str = this.toString();
 
     for (int i = 0; i < 3; i++) {
-      if (str.charAt(i) != 0)  {
+      if (str.charAt(i) != '0')  {
         return false;
       }
     }
+
+    System.out.println("Valid found");
 
     return true;
   }

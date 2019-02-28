@@ -1,7 +1,7 @@
 import java.security.NoSuchAlgorithmException;
 
 public class BlockChainTesting {
-        public static void main(String[] args) {
+        public static void main(String[] args) throws NoSuchAlgorithmException {
                 BlockChain blkChain = new BlockChain(500);
                 System.out.println(blkChain);
 
