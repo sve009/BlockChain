@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
  * Driver class that demonstrates
  * and lets users use the BlockChain
  * class for fun.
- * Just a groovy repl.
+ * Just a groovy loop.
  */
 public class BlockChainDriver {
 
