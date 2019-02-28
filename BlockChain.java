@@ -96,16 +96,17 @@ public class BlockChain {
   public boolean isValidBlockChain() {
     Node temp = this.first;
     int total = temp.value.getAmount();
-    Hash prevHash = temp.value.getHash();
-    Hash currentHash;
+    Hash prevHash;
+    Hash currentHash = temp.value.getHash();
 
-    if (!prevHash.isValid()) {
+    if (!currentHash.isValid()) {
       return false;
     }
 
     while (temp.next != null) {
       temp = temp.next;
       total += temp.value.getAmount();
+      prevHash = currentHash;
       currentHash = temp.value.getHash();
 
       if (total < 0 || !temp.value.getPrevHash().equals(prevHash) || !currentHash.isValid()) {
