@@ -86,7 +86,7 @@ public class Block {
     if (prevHash != null) {
       md.update(prevHash.getData());
     }
-    md.update(ByteBuffer.allocate(4).putLong(nonce).array());
+    md.update(ByteBuffer.allocate(12).putLong(nonce).array());
 
     return md.digest();
   }
